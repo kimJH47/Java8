@@ -14,18 +14,15 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Java8Test {
-    
+
     @Test
     @DisplayName("정규식 표현 테스트")
     public void 정규식() {
 
 
         // given
-
         String pattern = "^[0-9]*$";
-
         String input = "123456789";
-
         boolean regex = Pattern.matches(pattern, input);
 
 
@@ -33,13 +30,10 @@ class Java8Test {
 
         Pattern pattern2 = Pattern.compile("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$");
 
-        Matcher matcher = pattern2.matcher("010-7232-1147");
+        Matcher matcher = pattern2.matcher("000-111-222");
 
-
-        // than
-
+        // then
         Assertions.assertTrue(regex);
-
         Assertions.assertTrue(matcher.find());
 
 
@@ -47,9 +41,7 @@ class Java8Test {
 
 
     @Test
-
     @DisplayName("기본적인 스트림사용")
-
     public void 스트림() {
 
 
@@ -62,7 +54,6 @@ class Java8Test {
 
 
     @Test
-
     public void 스트림필터_테스트() {
 
         List<Apple> appleList = new ArrayList<>();
@@ -133,9 +124,7 @@ class Java8Test {
 
                            .filter(a -> a.getColor()
                                          .equals(Color.YELLOW))
-
                            .mapToInt(apple -> apple.getWeight())
-
                            .sum();
 
 
@@ -143,10 +132,6 @@ class Java8Test {
 
 
     }
-
-
-
-
 
 
 }
