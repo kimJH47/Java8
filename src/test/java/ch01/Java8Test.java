@@ -114,16 +114,22 @@ class Java8Test {
         appleList.add(new Apple(180, Color.YELLOW));
 
 
-        int sum = appleList.parallelStream()
-
+/*        for (Apple apple : appleList) {
+            ArrayList<Apple> result = new ArrayList<>();
+            if (apple.getColor()
+                     .equals(Color.RED)) {
+                result.add(apple)
+            ;
+            }
+            return result;
+        }*/
+        int sum = appleList.stream()
                            .filter(a -> a.getColor()
-                                         .equals(Color.YELLOW))
+                                         .equals(Color.RED))
                            .mapToInt(apple -> apple.getWeight())
                            .sum();
 
         Assertions.assertTrue(sum == 180);
-
-
     }
 
     @Test
