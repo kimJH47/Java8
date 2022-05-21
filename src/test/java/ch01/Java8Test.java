@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class Java8Test {
 
@@ -25,7 +24,6 @@ class Java8Test {
         String pattern = "^[0-9]*$";
         String input = "123456789";
         boolean regex = Pattern.matches(pattern, input);
-
 
         // when
 
