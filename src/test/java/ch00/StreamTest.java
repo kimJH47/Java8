@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,5 +74,48 @@ public class StreamTest {
         }
     }
 
+    @Test
+    public void TAKEWHILE_테스트 () throws Exception{
+        //given
+        //자바9의 내용
+        List<Dish> collect = menu.stream()
+                                 .sorted(Comparator.comparing(Dish::getCalories))
+                                 .takeWhile(dish -> dish.getCalories() < 400)
+                                 .collect(Collectors.toList());
+        //then
+        //when
+
+        for (Dish dish : collect) {
+            System.out.println("dish.getName() = " + dish.getName());
+            System.out.println("dish.getCalories() = " + dish.getCalories());
+
+        }
+    }
+    @Test
+    public void DROPWHILE_테스트() throws Exception{
+        //given
+        //자바9
+        List<Dish> collect = menu.stream()
+                                 .sorted(Comparator.comparing(Dish::getCalories))
+                                 .dropWhile(dish -> dish.getCalories() < 320)
+                                 .collect(Collectors.toList());
+        //when
+        //then
+        //거짓이 되는 지점까지 발견된 요소들을 버린다. 그 후 작업을 중단하고 남은 요소를 전부 반환한다.
+        for (Dish dish : collect) {
+            System.out.println("dish.getName() = " + dish.getName());
+            System.out.println("dish = " + dish.getCalories());
+        }
+    }
+    @Test
+    public void 스트림축소() throws Exception{
+        //given
+        List<Dish> collect = menu.stream()
+                                 .limit(3)
+                                 .collect(Collectors.toList());
+        //when
+        //then
+        assertThat(collect.size() <=3).isTrue();
+    }
 
 }
