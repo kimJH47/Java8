@@ -14,7 +14,7 @@ public class Ch11Test {
 
     @Test
     public void 기본_옵셔널_생성() throws Exception {
-        //슈뢰딩거의 옵셔널 ㄷ
+        //슈뢰딩거의 옵셔널
         //given
         //when
         //then
