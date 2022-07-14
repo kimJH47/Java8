@@ -70,6 +70,7 @@ public class Main {
             System.out.println("Is enum: " + clazz.isEnum());
             System.out.println("Is interface: " + clazz.isInterface());
             System.out.println("Is anonymous: " + clazz.isAnonymousClass());
+            System.out.println("superClass" + clazz.getSuperclass().getSimpleName());
             System.out.println();
             System.out.println();
         }
