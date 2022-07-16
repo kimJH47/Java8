@@ -26,11 +26,11 @@ public class ClassAnalyzer {
         /** Complete the code
          Hint: What does inputClass.getPackage() return when the class is a primitive type?
          **/
-        String packageName = inputClass.getPackageName();
-        if (JDK_PACKAGE_PREFIXES.contains(packageName)) {
-            return true;
-        }
-        return false;
+        return JDK_PACKAGE_PREFIXES.stream()
+                                   .anyMatch(packagePrefix ->inputClass.getPackage() == null|| //원시타입
+                                           inputClass.getPackage()
+                                                     .getName()
+                                                     .startsWith(packagePrefix));
     }
 
     public static String[] getAllInheritedClassNames(Class<?> inputClass) {
