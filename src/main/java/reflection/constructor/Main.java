@@ -17,12 +17,12 @@ public class Main {
         //생성자가 없을시 기본 생성자가 생성되고 반환값 역시 단일요소 배열로 반환
 
         printConstructors(Address.class);
-        Person person1 = (Person) createInstanceWithArgument(Person.class);
+        Person person1 = createInstanceWithArgument(Person.class);
         System.out.println(person1);
-        Person kim = (Person) createInstanceWithArgument(Person.class, "kim", 20);
+        Person kim =  createInstanceWithArgument(Person.class, "kim", 20);
         System.out.println(kim);
-        Address address = (Address) createInstanceWithArgument(Address.class, "First Street", 10);
-        Person person2 = (Person) createInstanceWithArgument(Person.class, address,"kim", 30);
+        Address address =  createInstanceWithArgument(Address.class, "First Street", 10);
+        Person person2 =  createInstanceWithArgument(Person.class, address,"kim", 30);
         System.out.println(person2);
 
     }
@@ -42,13 +42,13 @@ public class Main {
         }
     }
 
-    public static Object createInstanceWithArgument(Class<?> clazz, Object... args)
+    public static<T> T createInstanceWithArgument(Class<T> clazz, Object... args)
             throws InvocationTargetException, InstantiationException, IllegalAccessException {
         Constructor<?>[] declaredConstructors = clazz.getDeclaredConstructors();
         for (Constructor<?> declaredConstructor : declaredConstructors) {
             if (declaredConstructor.getParameterTypes().length == args.length) {
                 //Exception은 일단 무시
-                return declaredConstructor.newInstance(args);
+                return (T)declaredConstructor.newInstance(args);
             }
         }
         System.out.println("An appropriate constructor was not found");
