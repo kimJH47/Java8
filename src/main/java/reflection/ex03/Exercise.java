@@ -22,7 +22,8 @@ public class Exercise {
             System.out.println(currentInterface.getSimpleName());
             allImplementedInterfaces.add(currentInterface);
             /** Complete this code **/
-            findAllImplementedInterfaces(currentInterface);
+            Set<Class<?>> allImplementedInterfaces1 = findAllImplementedInterfaces(currentInterface);
+            allImplementedInterfaces.addAll(allImplementedInterfaces1);
         }
         return allImplementedInterfaces;
     }
