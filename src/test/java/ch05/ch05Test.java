@@ -1,8 +1,9 @@
 package ch05;
 
-import ch00.stream.Dish;
-import ch00.stream.DishType;
-import org.junit.jupiter.api.Tag;
+import java8.ch00.stream.Dish;
+import java8.ch00.stream.DishType;
+import java8.ch05.Trader;
+import java8.ch05.Transaction;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

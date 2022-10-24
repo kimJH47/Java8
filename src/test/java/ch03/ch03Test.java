@@ -1,14 +1,17 @@
 package ch03;
 
+import java8.ch00.Apple;
+import java8.ch00.Color;
+import java8.ch03.BufferedReaderProcessor;
+import java8.ch03.TriFunction;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -62,6 +65,49 @@ class ch03Test {
         assertEquals(sum,81);
 
     }
+    @Test
+    public void 메서드참조_테스트() throws Exception{
+        //given
+        BiFunction<Color, Integer, Apple> c3 = Apple::new;
+        //when
+        Apple apply = c3.apply(Color.GREEN, 100);
+        //then
+        assertEquals(apply.getColor(), Color.GREEN);
+    }
+    @Test
+    public void 메서드참조_테스트_응용() throws Exception{
+        //given
+        Map<String, BiFunction<Color,Integer,Apple>> map = new HashMap<>();
+        //when
+        map.put("apple1", Apple::new);
+        map.put("apple2", Apple::new);
+        Apple apple1 = map.get("apple1")
+                         .apply(Color.RED,100);
+        Apple apple2 = map.get("apple2")
+                         .apply(Color.RED,200);
+        //then
+        assertEquals(apple1.getWeight(),100);
+        assertEquals(apple2.getWeight(),200);
+
+
+    }
+    @Test
+    public void 메서드참조_테스트_파라미터가_3개인_함수형인터페이스() throws Exception{
+        //given
+        Map<String, TriFunction<Color,Integer,Double,Apple>> map = new HashMap<>();
+        //when
+        map.put("apple1", Apple::new);
+        map.put("apple2", Apple::new);
+        Apple apple1 = map.get("apple1")
+                          .apply(Color.RED,100,1.5);
+        Apple apple2 = map.get("apple2")
+                          .apply(Color.RED,200,2.9);
+        //then
+        assertEquals(apple1.getWeight(),100);
+        assertEquals(apple2.getBrix(),2.9);
+
+
+    }
     public <T, R> List<R> map(List<T> list, Function<T, R>function) {
         //T -> 매핑 전 타입
         //R -> 매핑 후 타입
@@ -92,5 +138,6 @@ class ch03Test {
             return p.process(bufferedReader);
         }
     }
+
 
 }

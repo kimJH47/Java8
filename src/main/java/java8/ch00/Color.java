@@ -1,4 +1,4 @@
-package ch00;
+package java8.ch00;
 
 public enum Color {
     RED,

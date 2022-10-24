@@ -1,7 +1,7 @@
-package ch00.predicate;
+package java8.ch00.predicate;
 
-import ch00.Apple;
-import ch00.Color;
+import java8.ch00.Apple;
+import java8.ch00.Color;
 
 public class AppleGreenColorPredicate implements ApplePredicate {
     @Override

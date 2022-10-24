@@ -1,4 +1,4 @@
-package ch00.stream;
+package java8.ch00.stream;
 
 public enum DishType {
     FISH,

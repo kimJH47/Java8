@@ -1,10 +1,9 @@
-package ch00.stream;
+package java8.ch00.stream;
 
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamMain {
 

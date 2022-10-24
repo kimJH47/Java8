@@ -1,4 +1,4 @@
-package ch05;
+package java8.ch05;
 
 public class Trader {
     private final String name;

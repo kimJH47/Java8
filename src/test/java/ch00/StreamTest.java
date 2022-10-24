@@ -1,8 +1,7 @@
 package ch00;
 
-import ch00.stream.Dish;
-import ch00.stream.DishType;
-import org.assertj.core.api.Assertions;
+import java8.ch00.stream.Dish;
+import java8.ch00.stream.DishType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

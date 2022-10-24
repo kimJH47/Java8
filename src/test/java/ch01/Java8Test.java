@@ -1,5 +1,8 @@
 package ch01;
 
+
+import java8.ch01.Apple;
+import java8.ch01.Color;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-class Java8Test {
+public class Java8Test {
 
     @Test
     @DisplayName("정규식 표현 테스트")

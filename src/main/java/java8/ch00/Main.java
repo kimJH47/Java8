@@ -1,4 +1,4 @@
-package ch00;
+package java8.ch00;
 
 import java.util.ArrayList;
 import java.util.List;
